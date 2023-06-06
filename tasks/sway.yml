@@ -1,0 +1,16 @@
+- name: Install sway-wm and dependencies
+  community.general.pacman:
+    name:
+      - foot
+        network-manager-applet
+        sway
+        swaybg
+        swayidle
+        swaylock
+        wofi
+        wl-clipboard
+        waybar
+- name: Install sway-wm dependencies from aur
+  kewlfft.aur.aur:
+    use: yay
+    name: wlay

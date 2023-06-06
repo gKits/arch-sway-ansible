@@ -1,0 +1,5 @@
+- name: Install screenshot dependencies
+  community.general.pacman:
+    name:
+      - grim
+        slurp

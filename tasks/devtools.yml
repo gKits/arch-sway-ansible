@@ -1,0 +1,8 @@
+- name: Install dev tools
+  community.general.pacman:
+    name:
+      - go
+        rust
+        cargo
+        neovim
+        minikube
