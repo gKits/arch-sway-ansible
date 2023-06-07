@@ -1,7 +1,0 @@
-- name: Setup Archlinux Sway
-  hosts: localhost
-  tasks:
-    - name: Pacman update and upgrade
-      community.general.pacman:
-        update_cache: true
-        upgrade: true

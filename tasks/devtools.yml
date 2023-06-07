@@ -2,7 +2,9 @@
   community.general.pacman:
     name:
       - go
-        rust
-        cargo
-        neovim
-        minikube
+      - rust
+      - cargo
+      - neovim
+      - minikube
+      - tmux
+      - psql

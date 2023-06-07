@@ -2,8 +2,8 @@
   community.general.pacman:
     name:
       - docker
-        docker-buildx
-        docker-compose
+      - docker-buildx
+      - docker-compose
 - name: Add user to docker group
   user:
     - name: "{{ system.username }}"

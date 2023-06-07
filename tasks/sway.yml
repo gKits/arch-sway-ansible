@@ -2,15 +2,23 @@
   community.general.pacman:
     name:
       - foot
-        network-manager-applet
-        sway
-        swaybg
-        swayidle
-        swaylock
-        wofi
-        wl-clipboard
-        waybar
+      - network-manager-applet
+      - sway
+      - swaybg
+      - swayidle
+      - swaylock
+      - wofi
+      - wl-clipboard
+      - waybar
+      - thunar
 - name: Install sway-wm dependencies from aur
   kewlfft.aur.aur:
     use: yay
-    name: wlay
+    name:
+      - wlay
+      - clipman
+- name: Install dependencies to allow screen sharing
+  community.general.pacman:
+    name:
+      - xdg-desktop-portal-wlr
+      - xdg-desktop-portal

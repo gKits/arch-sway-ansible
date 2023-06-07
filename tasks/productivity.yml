@@ -2,4 +2,4 @@
   community.general.pacman:
     name:
       - grim
-        slurp
+      - slurp
