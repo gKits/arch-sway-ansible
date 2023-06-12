@@ -1,4 +1,9 @@
-- name: Installing stow
+- name: Install dotfile dependencies
+  community.general.pacman:
+    name:
+      - stow
+  tags:
+    - dotfiles
 - name: Clone .dotfiles
   ansible.builtin.git:
     repo: 'git@github.com/gKits/.dotfiles.git'
@@ -7,5 +12,9 @@
     update: yes
     accept_hostkey: yes
     version: main
+  tags:
+    - dotfiles
 - name: Stow .dotfiles
   shell: cd $HOME/.dotfiles && ./install
+  tags:
+    - dotfiles
