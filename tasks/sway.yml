@@ -1,7 +1,7 @@
 - name: Install sway-wm and dependencies
   community.general.pacman:
     name:
-      - foot
+      - alacritty
       - network-manager-applet
       - sway
       - swaybg
