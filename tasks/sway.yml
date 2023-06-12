@@ -25,3 +25,8 @@
     name:
       - xdg-desktop-portal-wlr
       - xdg-desktop-portal
+- name: Install lemurs display manager
+  kewlfft.aur.aur:
+    use: yay
+    name:
+      - lemurs-git
