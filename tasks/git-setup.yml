@@ -1,0 +1,19 @@
+- name: Install git
+  community.general.pacman:
+    name:
+      - git
+      - github-cli
+- name: Git personal setup email
+  git_config:
+    name: user.email
+    scope: global
+    value: "gkitsikoudis@gmx.de"
+  tags:
+    - personal
+- name: Git personal setup name
+  git_config:
+    name: user.name
+    scope: global
+    value: "gKits"
+  tags:
+    - personal
