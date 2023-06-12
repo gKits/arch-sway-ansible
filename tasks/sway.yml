@@ -10,14 +10,17 @@
       - wofi
       - wl-clipboard
       - waybar
-      - thunar
+      - xorg-xwayland
+      - xorg-xlsclients
+      - qt5-xwayland
+      - glwf-xwayland
 - name: Install sway-wm dependencies from aur
   kewlfft.aur.aur:
     use: yay
     name:
       - wlay
       - clipman
-- name: Install dependencies to allow screen sharing
+- name: Install wayland dependencies to allow screen sharing
   community.general.pacman:
     name:
       - xdg-desktop-portal-wlr
