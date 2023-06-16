@@ -1,8 +1,8 @@
-- name: Install bluetooth dependencies
+- name: Bluetooth
   community.general.pacman:
     name:
-      - blueman
       - bluez
       - bluez-utils
+
 - name: Enable bluetooth service
   command: systemctl enable --now bluetooth

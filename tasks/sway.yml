@@ -1,32 +1,88 @@
-- name: Install sway-wm and dependencies
+- name: Sway WM
+  become: true
   community.general.pacman:
     name:
-      - alacritty
-      - network-manager-applet
       - sway
-      - swaybg
       - swayidle
       - swaylock
-      - wofi
-      - wl-clipboard
+      - swaybg
       - waybar
+      - wofi
+      - alacritty
+      - wl-clipboard
+      - ranger
+  tags:
+    - install
+    - sway
+
+- name: XWayland
+  become: true
+  community.general.pacman:
+    name:
       - xorg-xwayland
       - xorg-xlsclients
-      - qt5-xwayland
-      - glwf-xwayland
-- name: Install sway-wm dependencies from aur
+      - qt5-wayland
+      - glfw-wayland
+  tags:
+    - install
+    - sway
+
+- name: Display server GUI
   kewlfft.aur.aur:
     use: yay
     name:
-      - wlay
-      - clipman
-- name: Install wayland dependencies to allow screen sharing
-  community.general.pacman:
+      - wlay-git
+  become: yes
+  become_user: aur_builder
+  tags:
+    - install
+    - sway
+
+- name: Clipboard manager
+  kewlfft.aur.aur:
+    use: yay
     name:
-      - xdg-desktop-portal-wlr
-      - xdg-desktop-portal
-- name: Install lemurs display manager
+      - clipman
+  become: yes
+  become_user: aur_builder
+  tags:
+    - install
+    - sway
+
+- name: Lemurs DM
   kewlfft.aur.aur:
     use: yay
     name:
       - lemurs-git
+  become: yes
+  become_user: aur_builder
+  tags:
+    - install
+    - sway
+
+- name: Network utils
+  become: true
+  community.general.pacman:
+    name:
+      - blueman
+      - network-manager-applet
+  tags:
+    - install
+    - sway
+
+- name: Screenshots
+  become: true
+  community.general.pacman:
+    name:
+      - grim
+      - slurp
+
+- name: Screensharing
+  become: true
+  community.general.pacman:
+    name:
+      - xdg-desktop-portal-wlr
+      - xdg-desktop-portal
+  tags:
+    - install
+    - sway

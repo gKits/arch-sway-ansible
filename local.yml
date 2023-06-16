@@ -1,16 +1,27 @@
 - name: Setup Archlinux Sway
   hosts: localhost
-  become: true
   pre_tasks:
-    - name: Pacman update and upgrade
+    - name: Update and upgrade repositories
+      become: true
       community.general.pacman:
         update_cache: true
         upgrade: true
+      tags:
+        - install
   tasks:
-    - include: tasks/sway.yml
-    - include: tasks/yay.yml
-    - include: tasks/docker.yml
-    - include: tasks/bluetooth.yml
-    - include: tasks/devtools.yml
-    - include: tasks/productivity.yml
-    - include: tasks/dotfile.yml
+    - name: Core
+      include: tasks/core.yml
+    - name: Yay
+      include: tasks/yay.yml
+    - name: Sway
+      include: tasks/sway.yml
+    - name: Docker
+      include: tasks/docker.yml
+    - name: Bluetooth
+      include: tasks/bluetooth.yml
+    - name: Dotfiles
+      include: tasks/dotfiles.yml
+    - name: Zsh
+      include: tasks/zsh.yml
+    - name: Devtools
+      include: tasks/devtools.yml
