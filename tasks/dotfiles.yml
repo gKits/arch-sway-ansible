@@ -1,5 +1,5 @@
 - name: Install stow
-  apt:
+  community.general.pacman:
     name: stow
   tags:
     - install
