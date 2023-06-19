@@ -1,5 +1,6 @@
 - name: Install git
-  apt:
+  become: true
+  community.general.pacman:
     name:
       - git
       - github-cli
@@ -10,7 +11,8 @@
     scope: global
     value: "gkitsikoudis@gmx.de"
   tags:
-    - personal
+    - install
+    - git
 
 - name: Git personal setup name
   git_config:
@@ -18,4 +20,5 @@
     scope: global
     value: "gKits"
   tags:
-    - personal
+    - install
+    - git

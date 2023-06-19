@@ -11,6 +11,8 @@
   tasks:
     - name: Core
       include: tasks/core.yml
+    - name: Git
+      include: tasks/git.yml
     - name: Yay
       include: tasks/yay.yml
     - name: Sway
