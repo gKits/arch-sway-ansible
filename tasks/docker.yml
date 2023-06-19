@@ -1,4 +1,5 @@
 - name: Install docker
+  become: true
   community.general.pacman:
     name:
       - docker
@@ -9,8 +10,9 @@
     - docker
 
 - name: Add user to docker group
+  become: true
   ansible.builtin.user:
-    name: testuser
+    name: {{ ansible_user_id }}
     shell: /bin/bash
     groups: docker
     append: yes
@@ -19,6 +21,7 @@
     - docker
 
 - name: Start docker service
+  become: true
   shell: systemctl enable docker
   tags:
     - install
