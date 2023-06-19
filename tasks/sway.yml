@@ -32,8 +32,6 @@
     use: yay
     name:
       - wlay-git
-  become: yes
-  become_user: aur_builder
   tags:
     - install
     - sway
@@ -72,7 +70,7 @@
 - name: Add user to seat group for starting session with Lemurs
   become: true
   ansible.builtin.user:
-    name: {{ ansible_user_id }}
+    name: "{{ ansible_user_id }}"
     shell: /bin/bash
     groups: seat
     append: yes
@@ -80,7 +78,7 @@
     - install
     - sway
 
-- name: Install graphical network tools
+- name: Install graphical network/bluetooth tools
   become: true
   community.general.pacman:
     name:
