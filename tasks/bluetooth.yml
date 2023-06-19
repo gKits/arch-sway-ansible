@@ -1,4 +1,5 @@
 - name: Bluetooth
+  become: true
   community.general.pacman:
     name:
       - bluez
@@ -8,6 +9,7 @@
     - bluetooth
 
 - name: Enable bluetooth service
+  become: true
   command: systemctl enable --now bluetooth
   tags:
     - install
