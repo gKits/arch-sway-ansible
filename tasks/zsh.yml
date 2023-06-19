@@ -9,6 +9,7 @@
     - zsh
 
 - name: Change default shell to zsh
+  become: true
   shell: chsh -s $(which zsh)
   tags:
     - install
