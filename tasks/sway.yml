@@ -61,7 +61,7 @@
     state: directory
     owner: root
     mode: u=rwx,g=rwx,o=rx
-    recursive: true
+    recurse: true
 
 - name: Create Sway session startup script for Lemurs
   become: true
