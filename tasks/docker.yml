@@ -22,7 +22,7 @@
 
 - name: Start docker service
   become: true
-  shell: systemctl enable docker
+  shell: systemctl enable --now docker
   tags:
     - install
     - docker
