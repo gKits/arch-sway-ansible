@@ -54,6 +54,15 @@
     - install
     - sway
 
+- name: Create directory for Sway Lemurs config
+  become: true
+  file:
+    path: "/etc/lemurs/wayland/sway"
+    state: directory
+    owner: root
+    mode: u=rwx,g=rwx,o=rx
+    recursive: true
+
 - name: Create Sway session startup script for Lemurs
   become: true
   copy:
