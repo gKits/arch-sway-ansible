@@ -8,6 +8,7 @@
       - neovim
       - minikube
       - tmux
-      - psql
+      - postgresql
   tags:
     - install
+    - dev
