@@ -46,6 +46,9 @@
     - name: Kubernetes
       include_tasks: tasks/kubernetes.yml
       tags: [ always, kubernetes ]
+    - name: Arduino
+      include_tasks: tasks/arduino.yml
+      tags: [ never, arduino ]
     - name: Gaming
       include_tasks: tasks/gaming.yml
       tags: [ never, gaming ]

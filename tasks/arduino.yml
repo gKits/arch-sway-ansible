@@ -1,0 +1,6 @@
+- name: Install arduino dev tools
+  become: true
+  community.general.pacman:
+    name:
+      - arduino
+      - arduino-cli
