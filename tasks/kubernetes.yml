@@ -1,0 +1,9 @@
+- name: Install minikube, kubectl and helm
+  community.general.pacman:
+    name:
+      - minikube
+      - kubectl
+      - helm
+  tags:
+    - install
+    - kubernetes
