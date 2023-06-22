@@ -8,12 +8,7 @@
       - swaybg
       - waybar
       - wofi
-      - alacritty
       - wl-clipboard
-      - ranger
-  tags:
-    - install
-    - sway
 
 - name: Install XWayland clients
   become: true
@@ -23,38 +18,41 @@
       - xorg-xlsclients
       - qt5-wayland
       - glfw-wayland
-  tags:
-    - install
-    - sway
+
+- name: Install alacritty terminal emulator
+  become: true
+  community.general.pacman:
+    name: alacritty
+
+- name: Install mako notification daemon
+  become: true
+  community.general.pacman:
+    name: mako
+
+- name: Install ranger terminal file manager
+  become: true
+  community.general.pacman:
+    name: ranger
 
 - name: Install wlay display server GUI
   kewlfft.aur.aur:
     use: yay
     name:
       - wlay-git
-  tags:
-    - install
-    - sway
 
-- name: Install Clipboard manager
+- name: Install clipman clipboard manager
   kewlfft.aur.aur:
     use: yay
     name:
       - clipman
-  tags:
-    - install
-    - sway
 
-- name: Install Lemurs Display/Login manager
+- name: Install lemurs display/login manager
   kewlfft.aur.aur:
     use: yay
     name:
       - lemurs-git
-  tags:
-    - install
-    - sway
 
-- name: Create directory for Sway Lemurs config
+- name: Create directory for sway lemurs config
   become: true
   file:
     path: "/etc/lemurs/wayland/"
@@ -63,7 +61,7 @@
     mode: u=rwx,g=rwx,o=rx
     recurse: true
 
-- name: Create Sway session startup script for Lemurs
+- name: Create sway session startup script for lemurs
   become: true
   copy:
     dest: "/etc/lemurs/wayland/sway"
@@ -72,20 +70,18 @@
       exec sway
     mode: u=rwx,g=rx,o=rx
     owner: root
-  tags:
-    - install
-    - sway
 
-- name: Add user to seat group for starting session with Lemurs
+- name: Add user to seat group for starting session with lemurs
   become: true
   ansible.builtin.user:
     name: "{{ ansible_user_id }}"
     shell: /bin/bash
     groups: seat
     append: yes
-  tags:
-    - install
-    - sway
+
+- name: Enable lemurs service
+  become: true
+  shell: systemctl enable lemurs
 
 - name: Install graphical network/bluetooth tools
   become: true
@@ -93,11 +89,8 @@
     name:
       - blueman
       - network-manager-applet
-  tags:
-    - install
-    - sway
 
-- name: Install Screenshot tools
+- name: Install screenshot tools
   become: true
   community.general.pacman:
     name:
@@ -110,6 +103,8 @@
     name:
       - xdg-desktop-portal-wlr
       - xdg-desktop-portal
-  tags:
-    - install
-    - sway
+
+- name: Install light for brightness control
+  become: true
+  community.general.pacman:
+    name: light

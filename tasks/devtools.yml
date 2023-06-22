@@ -3,12 +3,9 @@
   community.general.pacman:
     name:
       - go
-      - rust
       - cargo
       - neovim
-      - minikube
       - tmux
       - postgresql
-  tags:
-    - install
-    - dev
+      - man-db
+      - fzf

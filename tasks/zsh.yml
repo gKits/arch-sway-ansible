@@ -3,15 +3,6 @@
   community.general.pacman:
     name:
       - zsh
-  tags:
-    - install
-    - dotfiles
-    - zsh
 
 - name: Change default shell to zsh
-  become: true
-  shell: chsh -s $(which zsh)
-  tags:
-    - install
-    - dotfiles
-    - zsh
+  shell: chsh -s $(which zsh) "{{ ansible_user_id }}"

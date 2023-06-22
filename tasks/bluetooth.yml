@@ -4,13 +4,7 @@
     name:
       - bluez
       - bluez-utils
-  tags:
-    - install
-    - bluetooth
 
 - name: Enable bluetooth service
   become: true
   command: systemctl enable --now bluetooth
-  tags:
-    - install
-    - bluetooth

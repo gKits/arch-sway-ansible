@@ -5,9 +5,6 @@
       - docker
       - docker-buildx
       - docker-compose
-  tags:
-    - install
-    - docker
 
 - name: Add user to docker group
   become: true
@@ -16,13 +13,7 @@
     shell: /bin/bash
     groups: docker
     append: yes
-  tags:
-    - install
-    - docker
 
 - name: Start docker service
   become: true
   shell: systemctl enable --now docker
-  tags:
-    - install
-    - docker

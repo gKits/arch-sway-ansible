@@ -2,9 +2,6 @@
   become: true
   community.general.pacman:
     name: stow
-  tags:
-    - install
-    - dotfiles
 
 - name: Clone dotfiles
   ansible.builtin.git:
@@ -14,12 +11,6 @@
     update: yes
     accept_hostkey: yes
     version: main
-  tags:
-    - install
-    - dotfiles
 
 - name: Stow dotfiles
   shell: cd $HOME/.dotfiles && ./install
-  tags:
-    - install
-    - dotfiles

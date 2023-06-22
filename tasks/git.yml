@@ -10,15 +10,9 @@
     name: user.email
     scope: global
     value: "gkitsikoudis@gmx.de"
-  tags:
-    - install
-    - git
 
 - name: Git personal setup name
   git_config:
     name: user.name
     scope: global
     value: "gKits"
-  tags:
-    - install
-    - git

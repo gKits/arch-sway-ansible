@@ -6,24 +6,46 @@
       community.general.pacman:
         update_cache: true
         upgrade: true
-      tags:
-        - install
   tasks:
     - name: Core
-      include: tasks/core.yml
+      include_tasks: tasks/core.yml
+      tags: [ always, core ]
+    - name: Pulseaudio
+      include_tasks: tasks/pulse.yml
+      tags: [ always, pulse ]
+    - name: AMD
+      include_tasks: tasks/amd.yml
+      tags: [ never, amd ]
+    - name: Intel
+      include_tasks: tasks/intel.yml
+      tags: [ never, intel ]
     - name: Git
-      include: tasks/git.yml
+      include_tasks: tasks/git.yml
+      tags: [ always, git ]
     - name: Yay
-      include: tasks/yay.yml
+      include_tasks: tasks/yay.yml
+      tags: [ always, yay ]
     - name: Sway
-      include: tasks/sway.yml
+      include_tasks: tasks/sway.yml
+      tags: [ always, sway ]
     - name: Docker
-      include: tasks/docker.yml
+      include_tasks: tasks/docker.yml
+      tags: [ always, docker ]
     - name: Bluetooth
-      include: tasks/bluetooth.yml
+      include_tasks: tasks/bluetooth.yml
+      tags: [ always, bluetooth ]
     - name: Dotfiles
-      include: tasks/dotfiles.yml
+      include_tasks: tasks/dotfiles.yml
+      tags: [ always, dotfiles ]
     - name: Zsh
-      include: tasks/zsh.yml
+      include_tasks: tasks/zsh.yml
+      tags: [ always, zsh ]
     - name: Devtools
-      include: tasks/devtools.yml
+      include_tasks: tasks/devtools.yml
+      tags: [ always, devtools ]
+    - name: Kubernetes
+      include_tasks: tasks/kubernetes.yml
+      tags: [ always, kubernetes ]
+    - name: Gaming
+      include_tasks: tasks/gaming.yml
+      tags: [ never, gaming ]

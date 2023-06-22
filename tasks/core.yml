@@ -10,13 +10,9 @@
       - core/binutils
       - core/bison
       - core/fakeroot
+      - htop
   become: true
-  tags:
-    - install
-    - core
+
 - name: Enable NetworkManager
-  command: systemctl enable NetworkManager
+  command: systemctl enable --now NetworkManager
   become: true
-  tags:
-    - install
-    - core
