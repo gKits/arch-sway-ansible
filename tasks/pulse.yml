@@ -1,0 +1,6 @@
+- name: Install PulseAudio
+  community.general.pacman:
+    name:
+      - pulseaudio
+      - pulseaudio-alsa
+      - alsa-utils
