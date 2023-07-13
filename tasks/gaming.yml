@@ -2,3 +2,4 @@
   become: true
   community.general.pacman:
     name: steam
+  tags: gaming

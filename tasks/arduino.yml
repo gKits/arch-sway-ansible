@@ -4,3 +4,4 @@
     name:
       - arduino
       - arduino-cli
+  tags: arduino

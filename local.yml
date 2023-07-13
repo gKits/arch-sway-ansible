@@ -9,46 +9,46 @@
   tasks:
     - name: Core
       include_tasks: tasks/core.yml
-      tags: [ always, core ]
-    - name: Pulseaudio
-      include_tasks: tasks/pulse.yml
-      tags: [ always, pulse ]
+      tags: core
     - name: AMD
       include_tasks: tasks/amd.yml
-      tags: [ never, amd ]
+      tags: amd
     - name: Intel
       include_tasks: tasks/intel.yml
-      tags: [ never, intel ]
+      tags: intel
     - name: Git
       include_tasks: tasks/git.yml
-      tags: [ always, git ]
+      tags: git
     - name: Yay
       include_tasks: tasks/yay.yml
-      tags: [ always, yay ]
+      tags: yay
     - name: Sway
       include_tasks: tasks/sway.yml
-      tags: [ always, sway ]
+      tags: sway
+    - name: Fprint
+      include_tasks: tasks/fprint.yml
+      tags: fprint
     - name: Docker
       include_tasks: tasks/docker.yml
-      tags: [ always, docker ]
+      tags: docker
     - name: Bluetooth
       include_tasks: tasks/bluetooth.yml
-      tags: [ always, bluetooth ]
+      tags: bluetooth
     - name: Dotfiles
       include_tasks: tasks/dotfiles.yml
-      tags: [ always, dotfiles ]
+      tags: dotfiles
     - name: Zsh
       include_tasks: tasks/zsh.yml
-      tags: [ always, zsh ]
+      tags: zsh
     - name: Devtools
       include_tasks: tasks/devtools.yml
-      tags: [ always, devtools ]
+      tags: devtools
     - name: Kubernetes
       include_tasks: tasks/kubernetes.yml
-      tags: [ always, kubernetes ]
+      tags: kubernetes
     - name: Arduino
       include_tasks: tasks/arduino.yml
-      tags: [ never, arduino ]
+      tags: arduino
     - name: Gaming
       include_tasks: tasks/gaming.yml
-      tags: [ never, gaming ]
+      tags: gaming

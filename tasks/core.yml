@@ -12,7 +12,9 @@
       - core/fakeroot
       - htop
   become: true
+  tags: core
 
 - name: Enable NetworkManager
   command: systemctl enable --now NetworkManager
   become: true
+  tags: core

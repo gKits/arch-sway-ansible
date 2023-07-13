@@ -3,6 +3,9 @@
   community.general.pacman:
     name:
       - zsh
+  tags: zsh
 
 - name: Change default shell to zsh
+  become: true
   shell: chsh -s $(which zsh) "{{ ansible_user_id }}"
+  tags: zsh

@@ -3,14 +3,17 @@
     repo: https://aur.archlinux.org/yay.git
     dest: ~/yay
     update: true
+  tags: yay
 
 - name: Build and install yay
   command:
     chdir: ~/yay
     cmd: makepkg -sfi --noconfirm
     creates: /usr/bin/yay
+  tags: yay
 
 - name: Remove yay directory
   ansible.builtin.file:
     path: ~/yay
     state: absent
+  tags: yay
