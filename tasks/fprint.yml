@@ -1,0 +1,27 @@
+- name: Install fprintd fingerprint daemon
+  become: true
+  community.general.pacman:
+    name: fprintd
+  tags: fprint
+
+- name: Edit swaylock file in pam.d to support fingerprint unlock
+  become: true
+  blockinfile:
+    path: /etc/pam.d/swaylock
+    block: |
+      auth    sufficient  pam_unix.so try_first_pass likeauth nullok
+      auth    sufficient  pam_fprintd.so
+    insertbefore: auth
+    owner: root
+  tags: fprint
+
+- name: Edit sudo in pam.d to support fingerprint auth when using sudo
+  become: true
+  blockinfile:
+    path: /etc/pam.d/sudo
+    block: |
+      auth    sufficient  pam_unix.so try_first_pass likeauth nullok
+      auth    sufficient  pam_fprintd.so
+    insertbefore: auth
+    owner: root
+  tags: fprint
